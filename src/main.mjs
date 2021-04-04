@@ -4,7 +4,7 @@ import { Pacratch } from './pacratch.mjs';
 import { Trainer } from './trainer.mjs';
 import { Arena } from './arena.mjs';
 
-let camera, scene, renderer, controls, menu;
+let camera, scene, renderer, controls, menu, canvas;
 // let enemy = new Pacratch(
 // 	"Fdrosch",
 // 	"./../res/pacratcher/fdrosch.png",
@@ -17,6 +17,7 @@ init();
 
 async function init(){
 	menu = document.getElementById("menu");
+	canvas = document.getElementById("canvas");
 	player = new Trainer(
 		"Player",
 		undefined,
@@ -28,7 +29,7 @@ async function init(){
 	player.pacratcher.forEach( p => menu.appendChild(p.gameCard) )
 	enemy.pacratcher.forEach( p => menu.appendChild(p.gameCard) )
 	arena = new Arena([player,enemy]);
-	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+	camera = new THREE.PerspectiveCamera( 70, canvas.clientWidth / canvas.clientHeight, 1, 1000 );
 	camera.position.z = 400;
 
 	scene = new THREE.Scene();
@@ -43,8 +44,8 @@ async function init(){
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.body.appendChild( renderer.domElement );
+	renderer.setSize( canvas.clientWidth, canvas.clientHeight );
+	canvas.appendChild( renderer.domElement );
 	//
 	controls = new OrbitControls( camera, renderer.domElement );
 	window.addEventListener( 'resize', onWindowResize );
@@ -53,10 +54,10 @@ async function init(){
 }
 
 function onWindowResize() {
-	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = canvas.clientWidth / canvas.clientHeight;
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( canvas.clientWidth, canvas.clientHeight );
 }
 
 function animate() {
