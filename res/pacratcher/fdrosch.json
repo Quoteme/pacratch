@@ -1,0 +1,27 @@
+{
+	"name": "Fdrosch",
+	"description": "A sinister being, usually found in the depths of the Guacacaca-forests where unfortunate travelers experience it's strong stench.",
+	"img": "./../res/pacratcher/fdrosch.png",
+	"width": 251.75,
+	"height": 169.5,
+	"health": 80,
+	"attacks": {
+		"Fdroschkick": {
+			"description": "Kick the opponent with some sexy swole hind-legs",
+			"cost": 3,
+			"dmg": 30,
+			"speed": 0.6,
+			"accuracy": 0.6
+		},
+		"Schlecken": {
+			"description": "Catch the opponent with your long tongue",
+			"cost": 2,
+			"dmg": 10,
+			"speed": 1.0,
+			"accuracy": 1.0
+		}
+	},
+	"ap": 10,
+	"accuracy": 0.9,
+	"speed": 10
+}

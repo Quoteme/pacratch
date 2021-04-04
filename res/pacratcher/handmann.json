@@ -1,0 +1,13 @@
+{
+	"name": "Handmann",
+	"description": "Nobody knows why Handmann look like human hands. But one thing is for sure: They might look friendly, but you should never touch them! There are reports of people having their hands eaten and replaced by Handmann, which in the end take over the hosts mind.",
+	"img": "./../res/pacratcher/handmann.png",
+	"width": 159,
+	"height": 186.25,
+	"health": 95,
+	"hp": 31,
+	"attacks": [],
+	"ap": 10,
+	"accuracy": 0.85,
+	"speed": 5
+}
