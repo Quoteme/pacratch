@@ -56,32 +56,28 @@
 	list-style-type: none;
 }
 
+.gameCard .attacks .attack .information .description{
+	margin: 0;
+}
+
 .gameCard .stats{
 	bottom: 0;
+	text-align: justify;
 }
 
-.gameCard .stats .speed::before{
-	content: "";
-	background: url("../icons/Schuh.png");
-	background-size: contain;
-	width: 16px;
-	height: 16px;
+.gameCard .stats .icon{
+	height: 20px;
 	display: inline-block;
 }
-.gameCard .stats .speed{
-	float: left;
-}
 
-.gameCard .stats .dmg::before{
-	content: "dmg:"
-}
 .gameCard .stats .dmg{
-	float: center;
+	display: inline-block;
 }
 
-.gameCard .stats .accuracy::before{
-	content: "accuracy:"
+.gameCard .stats .speed{
+	display: inline-block;
 }
+
 .gameCard .stats .accuracy{
-	float: right;
+	display: inline-block;
 }

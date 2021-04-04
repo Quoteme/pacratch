@@ -64,6 +64,7 @@ export class Pacratch{
 		Object.entries(this.attacks).forEach( ([name,info]) =>{
 			let attack = document.createElement("li");
 				attack.classList.add("attack");
+			// NAME
 			let title = document.createElement("span");
 				title.innerText = name;
 				title.classList.add("title");
@@ -71,24 +72,47 @@ export class Pacratch{
 			let information = document.createElement("ul");
 				information.classList.add("information");
 				attack.appendChild(information);
+			// DESCRIPTION
 			let description = document.createElement("li");
 				description.innerText = info.description;
 				description.classList.add("description");
 				information.appendChild(description);
+			// STATS
 			let stats = document.createElement("li")
 				stats.classList.add("stats");
 				information.appendChild(stats);
-			let dmg = document.createElement("span");
-				dmg.innerText = info.dmg ?? 0;
+			// DAMAGE
+			let dmg = document.createElement("div");
 				dmg.classList.add("dmg");
+			let dmgIcon = new Image();
+				dmgIcon.src = "./res/icons/Schwert.png";
+				dmgIcon.classList.add("icon");
+				dmg.appendChild(dmgIcon)
+			let dmgValue = document.createElement("span");
+				dmgValue.innerText = info.dmg ?? 0;
+				dmg.appendChild(dmgValue)
 				stats.appendChild(dmg);
-			let speed = document.createElement("span");
-				speed.innerText = info.speed ?? 0;
+			// SPEED
+			let speed = document.createElement("div");
 				speed.classList.add("speed");
+			let speedIcon = new Image();
+				speedIcon.src = "./res/icons/Schuh.png";
+				speedIcon.classList.add("icon");
+				speed.appendChild(speedIcon)
+			let speedValue = document.createElement("span");
+				speedValue.innerText = info.speed ?? 0;
+				speed.appendChild(speedValue)
 				stats.appendChild(speed);
-			let accuracy = document.createElement("span");
-				accuracy.innerText = info.accuracy ?? 0;
+			// ACCURACY
+			let accuracy = document.createElement("div");
 				accuracy.classList.add("accuracy");
+			let accuracyIcon = new Image();
+				accuracyIcon.src = "./res/icons/Ziel.png";
+				accuracyIcon.classList.add("icon");
+				accuracy.appendChild(accuracyIcon)
+			let accuracyValue = document.createElement("span");
+				accuracyValue.innerText = info.accuracy ?? 0;
+				accuracy.appendChild(accuracyValue)
 				stats.appendChild(accuracy);
 			attacks.appendChild(attack);
 		})
