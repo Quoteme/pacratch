@@ -37,3 +37,9 @@ The last player to be not defeated is the winner.
 ---
 
 [online version](https://quoteme.github.io/pacratch/)
+
+---
+
+![playing card](https://i.imgur.com/Ea2dxFu.png)
+
+![playing field](https://i.imgur.com/PgsRkqj.png)
