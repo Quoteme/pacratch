@@ -20,11 +20,11 @@ async function init(){
 	player = new Trainer(
 		"Player",
 		undefined,
-		[await Pacratch.fromJSONFile('../res/pacratcher/handmann.json')])
+		[await Pacratch.fromJSONFile('./res/pacratcher/handmann.json')])
 	enemy = new Trainer(
 		"Enemy",
 		undefined,
-		[await Pacratch.fromJSONFile('../res/pacratcher/fdrosch.json')])
+		[await Pacratch.fromJSONFile('./res/pacratcher/fdrosch.json')])
 	player.pacratcher.forEach( p => menu.appendChild(p.gameCard) )
 	enemy.pacratcher.forEach( p => menu.appendChild(p.gameCard) )
 	arena = new Arena([player,enemy]);

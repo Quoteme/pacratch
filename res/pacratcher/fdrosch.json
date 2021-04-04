@@ -1,7 +1,7 @@
 {
 	"name": "Fdrosch",
 	"description": "A sinister being, usually found in the depths of the Guacacaca-forests where unfortunate travelers experience it's strong stench.",
-	"img": "./../res/pacratcher/fdrosch.png",
+	"img": "./res/pacratcher/fdrosch.png",
 	"width": 251.75,
 	"height": 169.5,
 	"health": 80,
