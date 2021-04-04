@@ -60,9 +60,13 @@
 	margin: 0;
 }
 
+.gameCard .information .stats{
+	float: none
+}
+
 .gameCard .stats{
 	bottom: 0;
-	text-align: justify;
+	float: right;
 }
 
 .gameCard .stats .icon{

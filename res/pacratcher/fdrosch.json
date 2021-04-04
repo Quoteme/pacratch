@@ -21,7 +21,15 @@
 			"accuracy": 1.0
 		}
 	},
-	"ap": 10,
 	"accuracy": 0.9,
-	"speed": 10
+	"speed": 10,
+	"card": {
+		"borderColor": "#D4AF37",
+		"background": "#232323",
+		"icons": {
+			"speed": "./res/icons/Schuh.png",
+			"dmg": "./res/icons/Schwert.png",
+			"accuracy": "./res/icons/Ziel.png"
+		}
+	}
 }

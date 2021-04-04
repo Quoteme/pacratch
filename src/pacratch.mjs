@@ -16,6 +16,7 @@ export class Pacratch{
 		this.ap          = json.ap          ?? 0;
 		this.accuracy    = json.accuracy    ?? 1.0;
 		this.speed       = json.speed       ?? 1.0;
+		this._card       = json.card        ?? {};
 		this._geometry;
 		this._material;
 		this._texture;
@@ -47,6 +48,9 @@ export class Pacratch{
 	get gameCard(){
 		let container = document.createElement("div");
 			container.classList.add("gameCard");
+			console.log(this._card?.borderColor)
+			container.style.borderColor = this._card?.borderColor
+			container.style.background  = this._card?.background
 		let name = document.createElement("span");
 			name.innerText = this.name;
 			name.classList.add("name");
@@ -85,7 +89,8 @@ export class Pacratch{
 			let dmg = document.createElement("div");
 				dmg.classList.add("dmg");
 			let dmgIcon = new Image();
-				dmgIcon.src = "./res/icons/Schwert.png";
+				dmgIcon.src = this._card?.icons?.dmg
+					?? "./res/icons/Schwert.png";
 				dmgIcon.classList.add("icon");
 				dmg.appendChild(dmgIcon)
 			let dmgValue = document.createElement("span");
@@ -96,7 +101,8 @@ export class Pacratch{
 			let speed = document.createElement("div");
 				speed.classList.add("speed");
 			let speedIcon = new Image();
-				speedIcon.src = "./res/icons/Schuh.png";
+				speedIcon.src = this._card?.icons?.speed
+					?? "./res/icons/Schuh.png";
 				speedIcon.classList.add("icon");
 				speed.appendChild(speedIcon)
 			let speedValue = document.createElement("span");
@@ -107,7 +113,8 @@ export class Pacratch{
 			let accuracy = document.createElement("div");
 				accuracy.classList.add("accuracy");
 			let accuracyIcon = new Image();
-				accuracyIcon.src = "./res/icons/Ziel.png";
+				accuracyIcon.src = this._card?.icons?.accuracy
+					?? "./res/icons/Ziel.png";
 				accuracyIcon.classList.add("icon");
 				accuracy.appendChild(accuracyIcon)
 			let accuracyValue = document.createElement("span");
@@ -116,15 +123,33 @@ export class Pacratch{
 				stats.appendChild(accuracy);
 			attacks.appendChild(attack);
 		})
+		// GENERAL STATISTICS
 		let stats = document.createElement("div");
 			stats.classList.add("stats");
-		let speed = document.createElement("span");
-			speed.innerText = this.speed;
+		// SPEED
+		let speed = document.createElement("div");
 			speed.classList.add("speed");
-		stats.appendChild(speed);
-		let accuracy = document.createElement("span");
-			accuracy.innerText = this.accuracy;
+		let speedIcon = new Image();
+			speedIcon.src = this._card?.icons?.speed
+				?? "./res/icons/Schuh.png";
+			speedIcon.classList.add("icon");
+			speed.appendChild(speedIcon)
+		let speedValue = document.createElement("span");
+			speedValue.innerText = this.speed;
+			speed.appendChild(speedValue)
+			stats.appendChild(speed);
+		// ACCURACY
+		let accuracy = document.createElement("div");
 			accuracy.classList.add("accuracy");
+		let accuracyIcon = new Image();
+			accuracyIcon.src = this._card?.icons?.accuracy
+				?? "./res/icons/Schuh.png";
+			accuracyIcon.classList.add("icon");
+			accuracy.appendChild(accuracyIcon)
+		let accuracyValue = document.createElement("span");
+			accuracyValue.innerText = this.accuracy;
+			accuracy.appendChild(accuracyValue)
+			stats.appendChild(accuracy);
 		stats.appendChild(accuracy);
 
 		container.appendChild(name);
