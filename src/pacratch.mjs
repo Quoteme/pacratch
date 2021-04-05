@@ -143,7 +143,7 @@ export class Pacratch{
 			accuracy.classList.add("accuracy");
 		let accuracyIcon = new Image();
 			accuracyIcon.src = this._card?.icons?.accuracy
-				?? "./res/icons/Schuh.png";
+				?? "./res/icons/Ziel.png";
 			accuracyIcon.classList.add("icon");
 			accuracy.appendChild(accuracyIcon)
 		let accuracyValue = document.createElement("span");

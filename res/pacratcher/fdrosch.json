@@ -22,14 +22,5 @@
 		}
 	},
 	"accuracy": 0.9,
-	"speed": 10,
-	"card": {
-		"borderColor": "#D4AF37",
-		"background": "#232323",
-		"icons": {
-			"speed": "./res/icons/Schuh.png",
-			"dmg": "./res/icons/Schwert.png",
-			"accuracy": "./res/icons/Ziel.png"
-		}
-	}
+	"speed": 10
 }

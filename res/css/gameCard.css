@@ -6,15 +6,17 @@
 }
 
 .gameCard{
+	margin: 5px;
 	width: 250px;
 	height: 380px;
-	background-color: #232323;
+	background-color: #161616;
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 7px solid #D4AF37;
 	border-radius: 15px;
 	color: #efefef;
 	font-family: 'Oswald', sans-serif;
+	box-shadow: 10px 10px 5px #0a0a0a;
 }
 
 .gameCard .name {
