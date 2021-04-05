@@ -17,7 +17,7 @@
 		<button id="generate">generate</button>
 		<div id="preview"></div>
 		<script type="module">
-			import {Pacratch} from '../src/pacratch.mjs';
+			import {Pacratch} from './src/pacratch.mjs';
 			let editor = document.getElementById("editor");
 			let generate = document.getElementById("generate");
 			let preview = document.getElementById("preview");
@@ -30,7 +30,7 @@
 				preview.appendChild(pacratch.gameCard)
 			}
 			async function init (){
-				let json = await fetch('../res/pacratcher/fdrosch.json')
+				let json = await fetch('./res/pacratcher/fdrosch.json')
 				let text = await json.text();
 				editor.value = text;
 			}
