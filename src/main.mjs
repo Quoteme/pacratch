@@ -17,7 +17,7 @@ async function init(){
 		new Trainer(
 			"Player",
 			undefined,
-			[await Pacratch.fromJSONFile('./res/pacratcher/handmann.json')]),
+			[await Pacratch.fromJSONFile('./res/pacratcher/zitrusmann.json')]),
 		new Trainer(
 			"Enemy",
 			undefined,

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>cardcreator</title>
+		<meta name="author" content="Luca Leon Happel">
+		<link rel="stylesheet" href="./res/css/gameCard.css"/>
+		<style>
+			#editor{
+				width: 100%;
+				height: 50vh;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea id="editor"></textarea>
+		<button id="generate">generate</button>
+		<div id="preview"></div>
+		<script type="module">
+			import {Pacratch} from '../src/pacratch.mjs';
+			let editor = document.getElementById("editor");
+			let generate = document.getElementById("generate");
+			let preview = document.getElementById("preview");
+
+			generate.onclick = _ => {
+				let text = editor.value;
+				let json = JSON.parse(text);
+				let pacratch = new Pacratch(json);
+				preview.innerHTML = "";
+				preview.appendChild(pacratch.gameCard)
+			}
+			async function init (){
+				let json = await fetch('../res/pacratcher/fdrosch.json')
+				let text = await json.text();
+				editor.value = text;
+			}
+			init();
+		</script>
+	</body>
+</html>
