@@ -5,22 +5,24 @@
 	"width": 159,
 	"height": 186.25,
 	"health": 95,
-	"attacks": {
-		"Handschlag": {
+	"attacks": [
+		{
+			"name": "Handschlag",
 			"description": "Traditional greeting between Handmanns",
 			"cost": 1,
 			"dmg": 10,
 			"speed": 0.95,
 			"accuracy": 0.8
 		},
-		"Schnick-Schnack-Schnuck": {
+		{
+			"name": "Schnick-Schnack-Schnuck",
 			"description": "Advanced Handmann fighting styles few can master",
 			"cost": 4,
 			"dmg": 40,
 			"speed": 0.45,
 			"accuracy": 0.66
 		}
-	},
+	],
 	"accuracy": 0.85,
 	"speed": 5
 }

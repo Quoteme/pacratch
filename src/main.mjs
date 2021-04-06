@@ -16,18 +16,18 @@ async function init(){
 	player = [
 		new Trainer(
 			"Player",
-			undefined,
 			[await Pacratch.fromJSONFile('./res/pacratcher/zitrusmann.json')]),
 		new Trainer(
 			"Enemy",
-			undefined,
+			[],[],
 			[await Pacratch.fromJSONFile('./res/pacratcher/fdrosch.json')])
 	]
-	player[0].pacratcher.forEach( p => menu.appendChild(p.gameCard) )
+	menu.appendChild(player[0].deck[0].gameCard)
 
 	arena = new Arena(player);
-	camera = new THREE.PerspectiveCamera( 70, canvas.clientWidth / canvas.clientHeight, 1, 1000 );
-	camera.position.z = 400;
+	camera = new THREE.PerspectiveCamera( 70, canvas.clientWidth / canvas.clientHeight, 1, 5000 );
+	camera.position.set(-50,100,400);
+	camera.lookAt(0,0,0)
 
 	scene = new THREE.Scene();
 

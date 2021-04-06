@@ -5,22 +5,24 @@
 	"width": 251.75,
 	"height": 169.5,
 	"health": 80,
-	"attacks": {
-		"Fdroschkick": {
+	"summoningCost" : 5,
+	"turnCost" : 1,
+	"attacks": [
+		{
+			"name": "Fdroschkick",
 			"description": "Kick the opponent with some sexy swole hind-legs",
-			"cost": 3,
+			"nrg": 3,
 			"dmg": 30,
-			"speed": 0.6,
 			"accuracy": 0.6
 		},
-		"Schlecken": {
+		{
+			"name": "Schlecken",
 			"description": "Catch the opponent with your long tongue",
-			"cost": 2,
+			"nrg": 2,
 			"dmg": 10,
-			"speed": 1.0,
 			"accuracy": 1.0
 		}
-	},
+	],
 	"accuracy": 0.9,
 	"speed": 10
 }

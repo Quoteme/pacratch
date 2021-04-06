@@ -2,18 +2,24 @@ import * as THREE from './three.module.js';
 
 export class Arena{
 	constructor(trainers=[]){
-		this.trainers = trainers
+		this.trainers = trainers;
 		this.mesh = new THREE.Object3D();
-		this.radius = 50+40*trainers.length;
-		this.trainerBases;
 		//
 		this.ground;
 		this.light;
 		this.initLight();
 		this.initGround();
-		this.initTrainerBases();
-		this.addPacratcher();
+		//
+		this.initTrainerMeshes();
 	}
+
+	/**
+	 * List all the pacratcher currently active in the arena
+	 */
+	get active(){
+		return this.trainers.map(t => t.active).flat();
+	}
+
 	initLight(){
 		this.light = {
 			ambient: new THREE.AmbientLight( 0xffffff, 0.5 ),
@@ -33,34 +39,20 @@ export class Arena{
 		this.ground.rotateX(-Math.PI/2)
 		this.mesh.add(this.ground);
 	}
-	initTrainerBases(){
-		this.trainerBases = new THREE.Object3D();
-		this.trainers.forEach((_,i) => {
-			let base = new THREE.Object3D();
-			let socket = new THREE.Mesh(
-				new THREE.CylinderBufferGeometry(80,70,30,20,1),
-				new THREE.MeshPhongMaterial({color: 0x787878})
-			)
-			socket.castShadow = true;
-			socket.receiveShadow = true;
-			let angle = i*Math.PI*2/this.trainers.length + 3*Math.PI/4;
-			base.add(socket)
-			base.position.set(
-				this.radius*Math.cos(angle),
-				10,
-				this.radius*Math.sin(angle),
-			)
-			base.lookAt(0,0,0)
-			this.trainerBases.add(base);
-		})
-		this.mesh.add(this.trainerBases);
+
+	/**
+	 * Adds all the meshes from different trainers to the scene
+	 * or removes them, if they are no longer needed
+	 */
+	initTrainerMeshes(){
+		this.active.forEach(p =>this.mesh.add(p.mesh))
 	}
-	addPacratcher(){
-		this.trainers.forEach((t,i) => {
-			if(!t.defeated){
-				let base = this.trainerBases.children[i];
-				base.add(t.activePacratcher.mesh)
-			}
-		})
+
+	/**
+	 * Update the active pacratcher (add missing ones, delet defeated, ...)
+	 */
+	updatePacratcher(){
+		// check if every active pacratch is in the arena
+		// TODO
 	}
 }

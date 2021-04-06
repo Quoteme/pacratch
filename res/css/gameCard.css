@@ -19,10 +19,42 @@
 	box-shadow: 10px 10px 5px #0a0a0a;
 }
 
-.gameCard .name {
+.gameCard .titleBar {
 	display: block;
+}
+
+.gameCard .titleBar .name {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 23px;
+}
+
+.gameCard .titleBar .quickstatBar {
+	float: right;
+	text-align: right;
+	width: 30%;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 23px;
+}
+
+.gameCard .titleBar .quickstatBar .hp{
+	color: #e15335;
+	text-align: center;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+.gameCard .titleBar .quickstatBar .summoningCost{
+	color: #7bd0d0;
+	text-align: center;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+.gameCard .titleBar .quickstatBar .turnCost{
+	color: #c7ca36;
+	text-align: center;
+	padding-right: 3px;
+	padding-left: 3px;
 }
 
 .gameCard .imageContainer{
@@ -62,13 +94,29 @@
 	margin: 0;
 }
 
+/* .gameCard .attacks .attack .information .stats .dmg{ */
+/* 	float: left; */
+/* } */
+
+/* .gameCard .attacks .attack .information .stats .accuracy{ */
+/* 	float: right; */
+/* } */
+
 .gameCard .information .stats{
-	float: none
+	text-align: justify;
 }
 
 .gameCard .stats{
 	bottom: 0;
-	float: right;
+	text-align: right;
+	display: block;
+}
+
+.gameCard .stats .nrg,
+.gameCard .stats .dmg,
+.gameCard .stats .accuracy
+{
+	margin-right: 3px;
 }
 
 .gameCard .stats .icon{
@@ -76,8 +124,14 @@
 	display: inline-block;
 }
 
+.gameCard .stats .nrg{
+	display: inline-block;
+	color: #7bd0d0;
+}
+
 .gameCard .stats .dmg{
 	display: inline-block;
+	color: #e15335;
 }
 
 .gameCard .stats .speed{
@@ -86,4 +140,5 @@
 
 .gameCard .stats .accuracy{
 	display: inline-block;
+	color: #c7ca36;
 }

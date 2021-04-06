@@ -27,10 +27,11 @@
 				let json = JSON.parse(text);
 				let pacratch = new Pacratch(json);
 				preview.innerHTML = "";
+				console.log(pacratch)
 				preview.appendChild(pacratch.gameCard)
 			}
 			async function init (){
-				let json = await fetch('./res/pacratcher/fdrosch.json')
+				let json = await fetch('./res/pacratcher/zitrusmann.json')
 				let text = await json.text();
 				editor.value = text;
 			}
