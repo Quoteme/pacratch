@@ -118,7 +118,6 @@ export class Pacratch{
 	get gameCard(){
 		let container = document.createElement("div");
 			container.classList.add("gameCard");
-			console.log(this._card?.borderColor)
 			container.style.borderColor = this._card?.borderColor
 			container.style.background  = this._card?.background
 		// TITLEBAR
@@ -337,7 +336,6 @@ class Attack{
 			nrgIcon.src = this._card?.icons?.nrg
 				?? "./res/icons/Energie.png";
 			nrgIcon.classList.add("icon");
-			console.log(this.nrg)
 			for(let i=0; i<this.nrg; i++) {
 				nrg.appendChild(nrgIcon.cloneNode(true))
 			}

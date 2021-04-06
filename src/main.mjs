@@ -3,6 +3,7 @@ import { OrbitControls } from './OrbitControls.js';
 import { Pacratch } from './pacratch.mjs';
 import { Trainer } from './trainer.mjs';
 import { Arena } from './arena.mjs';
+import * as UI from './ui.mjs'
 
 let camera, scene, renderer, controls;
 let menu, canvas;
@@ -13,6 +14,7 @@ init();
 async function init(){
 	menu = document.getElementById("menu");
 	canvas = document.getElementById("canvas");
+	UI.init();
 	player = [
 		new Trainer(
 			"Player",
@@ -37,10 +39,6 @@ async function init(){
 	player[1].active[2].z = -200
 	player[0].active[0].x = 50
 	player[0].active[0].z = 50
-	menu.appendChild(player[0].deck[0].gameCard)
-	menu.appendChild(player[1].active[0].gameCard)
-	menu.appendChild(player[1].active[1].gameCard)
-	menu.appendChild(player[1].active[2].gameCard)
 
 	arena = new Arena(player);
 	camera = new THREE.PerspectiveCamera( 70, canvas.clientWidth / canvas.clientHeight, 1, 5000 );

@@ -5,10 +5,22 @@
 		<title>index</title>
 		<meta name="author" content="Luca Leon Happel">
 		<link rel="stylesheet" href="res/css/master.css">
+		<link rel="stylesheet" href="res/css/newGame.css">
 		<script type="module" src="src/main.mjs"></script>
 	</head>
 	<body>
 		<div id="canvas"></div>
 		<div id="menu"></div>
+		<div id="greeter"><!--TODO--></div>
+		<div id="newGame">
+			<h2>New Game</h2>
+			<table>
+				<tr>
+					<td>Number of Players</td>
+					<td><input id="playerNR" type="number" min="2" step="1" value="2"/></td>
+				</tr>
+			</table>
+			<button id="chooseDeck">next</button>
+		</div>
 	</body>
 </html>
