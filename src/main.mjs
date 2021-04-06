@@ -16,13 +16,31 @@ async function init(){
 	player = [
 		new Trainer(
 			"Player",
-			[await Pacratch.fromJSONFile('./res/pacratcher/zitrusmann.json')]),
+			[await Pacratch.fromJSONFile('./res/pacratcher/oni_warrior.json')],
+			[],
+			[await Pacratch.fromJSONFile('./res/pacratcher/oni_warrior.json')]
+		),
 		new Trainer(
 			"Enemy",
-			[],[],
-			[await Pacratch.fromJSONFile('./res/pacratcher/fdrosch.json')])
+			[],
+			[],
+			[await Pacratch.fromJSONFile('./res/pacratcher/zitrusmann.json')
+			,await Pacratch.fromJSONFile('./res/pacratcher/fdrosch.json')
+			,await Pacratch.fromJSONFile('./res/pacratcher/handmann.json')]
+		)
 	]
+	player[1].active[0].x = -100
+	player[1].active[0].z = -50
+	player[1].active[1].x = 100
+	player[1].active[1].z = -100
+	player[1].active[2].x = -250
+	player[1].active[2].z = -200
+	player[0].active[0].x = 50
+	player[0].active[0].z = 50
 	menu.appendChild(player[0].deck[0].gameCard)
+	menu.appendChild(player[1].active[0].gameCard)
+	menu.appendChild(player[1].active[1].gameCard)
+	menu.appendChild(player[1].active[2].gameCard)
 
 	arena = new Arena(player);
 	camera = new THREE.PerspectiveCamera( 70, canvas.clientWidth / canvas.clientHeight, 1, 5000 );

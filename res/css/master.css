@@ -17,3 +17,8 @@ body{
 	transition: 1s;
 	overflow: auto;
 }
+
+#menu .gameCard{
+	float: left;
+	display: inline;
+}
