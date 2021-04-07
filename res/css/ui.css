@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+:root{
+	--trainerUITitleHeight: 22px;
+}
+
+.trainerUI {
+	font-family: 'Oswald', sans-serif;
+	color: #d2d2d2;
+}
+
+.trainerUI .header .name{
+	font-family: 'Permanent Marker', cursive;
+	color: #7bd0d0;
+	text-align: justify;
+}
+
+.trainerUI .header {
+	font-size: var(--trainerUITitleHeight);
+}
+
+.trainerUI .header .health,
+.trainerUI .header .deck,
+.trainerUI .header .energy{
+	display: inline-block;
+	float: right;
+}
+
+.trainerUI .header .icon {
+	display: inline;
+	height: var(--trainerUITitleHeight);
+}
+
+.trainerUI .header .total::before{
+	content: "/";
+	color: #868686;
+}
+
+.trainerUI .header .total{
+	color: #868686;
+}

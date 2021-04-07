@@ -1,4 +1,5 @@
 import * as TRAINER from './trainer.mjs';
+import * as PACRATCH from './pacratch.mjs';
 
 let menu = document.getElementById("menu");
 let newGame = document.getElementById("newGame");
@@ -15,8 +16,10 @@ export function init(){
  */
 async function initNewGame(){
 	let playerNR = document.getElementById("playerNR");
-	document.getElementById("chooseDeck").onclick = _ =>
+	document.getElementById("chooseDeck").onclick = _ => {
 		createPlayers(parseInt(playerNR.value))
+			.then( _ => newGame.style.display = "none" )
+	}
 
 	/**
 	 * Create all the players needed
@@ -28,13 +31,18 @@ async function initNewGame(){
 		for(let i=1; i<=n; i++){
 			try{
 				players.push(
-					await PlayerCreationScreen
-						.createPlayer(`Player ${i}`)
+					await PlayerCreationScreen.createPlayer(
+						`Player ${i}`,
+					await PACRATCH.Deck.fromJSONFile('./res/decks/default.json')
+					)
 				);
 			}catch(err){
 			}
 		}
-		console.log(players)
+		// Let each player choose a custom deck
+		// TODO
+		players.forEach(p => menu.appendChild(p.uiHTML))
+		console.log(players);
 		return players;
 	}
 }
@@ -159,7 +167,7 @@ class DeckCreationScreen{
 		this.maxSize = n     ?? 60;
 	}
 
-	static createDeck(...cards){
+	static createDeck(cards,deck,n){
 		return new Promise((resolve, reject) => {
 			// TODO
 		})

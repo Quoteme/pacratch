@@ -381,3 +381,62 @@ class Attack{
 		return attacks.map(a => new Attack(a))
 	}
 }
+
+export class Deck{
+	/**
+	 * Create a new deck from a JSON file
+	 *
+	 * @param {Object} json - The object which stores all the
+	 * information about this deck (usually parsed from a file in
+	 * `res/decks/`
+	 */
+	constructor(json){
+		this.name        = json.name        ?? "Deck without a name";
+		this.description = json.description ?? "Deck has no description";
+		this.pacratcher  = json.pacratcher  ?? [];
+		this.used        = 0;
+	}
+
+	/**
+	 * Number of cards in the deck
+	 */
+	get length(){
+		return this.pacratcher.length;
+	}
+
+	/**
+	 * Pick cards and remove them from the deck
+	 *
+	 * @param {number} n - Number of cards to pick
+	 * @param {random variable} [picker] - A random variable (https://de.wikipedia.org/wiki/Zufallsvariable#Definition)
+	 * which represents the index of a random card being picked
+	 * @returns {Pacratch[]} picked cards
+	 */
+	pickCards(n,picker=Math.ceil(this.length*Math.random())){
+		if(n<0 || typeof(n)!="number")
+			throw("invalid input");
+		if(n>0){
+			this.used++;
+			return this.pacratcher.splice(picker,1).concat(this.pickCards(n-1))
+		}
+		else if(n==0)
+			return []
+	}
+	/**
+	 * Load a deck from a json file
+	 */
+	static async fromJSONFile(url){
+		let resp = await fetch(url)
+		let json;
+		if(resp.ok){
+			json = await resp.json();
+		}else{
+			throw "JSON not found!"
+		}
+		// replace the links to files with actual data
+		for(let i=0; i<json.pacratcher.length;i++){
+			json.pacratcher[i] = await Pacratch.fromJSONFile(json.pacratcher[i]);
+		}
+		return new Deck(json);
+	}
+}
